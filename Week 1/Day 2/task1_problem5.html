@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Course Enrollment Form</title>
+</head>
+<body>
+    <h1>Course Enrollment Form</h1>
+    <hr/>
+
+    <form action="Register.php"  method="GET" autocomplete="on">
+        <fieldset>
+            <legend>Student Registration Form</legend>
+        <label>Name : </label>
+        <input  type="text"  id="uid"  name="uid" autofocus  placeholder="Enter name" required/>
+        <br/><br/>
+        <label>Email : </label>
+        <input  type="email"  id="em"  name="em"   placeholder="Enter email" required />
+        <br/><br/>
+
+        <label>Telephone Number : </label>
+        <input  type="tel"  id="num"  name="num"   placeholder="Enter Telephone Number" pattern="[0-9]{5}-[0-9]{6}" required />
+        <br/><br/>
+
+        <label>Enter Age : </label>
+        <input type="number" name="age" id="age" placeholder="Age" min="10" max="50" required>
+        <br/><br/>
+
+        <label>Enter Date of Birth : </label>
+        <input type="date" name="DOB" id="DOB" placeholder="Enter DOB" min="1976-01-01" max="2016-01-01" required>
+        <br/><br/>
+
+        <label>Select course : </label>
+        <input list="courses" required>
+        <datalist id="courses">
+            <option value="Web Development">
+            <option value="App Development">
+            <option value="Cyber Security">
+            <option value="Artificial Intelligence">
+            <option value="Machine Learning">
+            <option value="Cloud Computing">
+        </datalist>
+        <br/><br/>
+
+        <label>Course Duration (1 to 10 months) : </label>
+        <input type="range" name="coursemonth" id="cm" required min="1" max="10" step="1">
+        <br/><br/>
+
+        <label>Enrollment completion : </label>
+        <progress id="pc" value="42" max="100">42%</progress><span>  42%</span>
+        <br/><br/>
+
+        <label>Skill Level : </label><br>
+        <span>Beginner </span><span><meter value="6" id="sl" min="0" max="10"></meter></span><span> Advance </span>
+        <br/><br/>
+
+
+        <input type="submit" value="Register"  />  
+        <input type="reset" value="Clear"  />  
+         </fieldset>      
+    </form>
+
+</body>
+</html>

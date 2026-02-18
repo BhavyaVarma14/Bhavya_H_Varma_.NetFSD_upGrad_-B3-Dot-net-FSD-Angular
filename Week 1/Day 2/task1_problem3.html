@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+</head>
+<body>
+    <h1>Student Registration Form</h1>
+    <hr/>
+
+    <form action="Register.php"  method="POST"  autocomplete="off">
+        <fieldset>
+            <legend>Student Registration Form</legend>
+        <label>Name : </label>
+        <input  type="text"  id="uid"  name="uid" autofocus  placeholder="Enter name" required/>
+        <br/><br/>
+        <label>Email : </label>
+        <input  type="email"  id="em"  name="em"   placeholder="Enter email" required />
+        <br/><br/>
+
+        <label>Telephone Number : </label>
+        <input  type="tel"  id="num"  name="num"   placeholder="Enter Telephone Number" pattern="[0-9]{5}-[0-9]{6}" required />
+        <br/><br/>
+
+        <label>Enter Age : </label>
+        <input type="number" name="age" id="age" placeholder="Age" min="10" max="50" required>
+        <br/><br/>
+
+        <label>Enter Date of Birth : </label>
+        <input type="date" name="DOB" id="DOB" placeholder="Enter DOB" min="1976-01-01" max="2016-01-01" required>
+        <br/><br/>
+
+        <input type="submit" value="Register"  />  
+        <input type="reset" value="Clear"  />  
+         </fieldset>      
+    </form>
+
+</body>
+</html>
