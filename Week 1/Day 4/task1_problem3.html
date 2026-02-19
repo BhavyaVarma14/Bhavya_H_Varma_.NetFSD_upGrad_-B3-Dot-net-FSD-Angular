@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount Calculator</title>
+</head>
+<body>
+    <h3>Enter Purchase Amount</h3><br>
+    <input type="number" name="num" id="num1"><br><br>
+    <input type="button" value="Show Final Amount and Discount" onclick="showAmount()" id="b1"><br>
+    <h3 id="dis"></h3>
+    <script>
+        function showAmount()
+        {
+            let amount = Number(document.getElementById("num1").value);
+            let h3dis = document.getElementById("dis");
+            let mes,discount,TAmount;
+
+            if(amount >= 5000)
+            {
+                discount = ((20 * amount)/100);
+                TAmount =  amount - ((20 * amount)/100);
+                mes = "Your Final payable amount is " + TAmount + " And Discout is " + discount + " (20%) ";
+            }
+            else if(amount < 0)
+            {
+                mes = "Amount is not Valid";
+            }
+            else if(amount >= 3000)
+            {
+                discount = ((10 * amount)/100);
+                TAmount =  amount - ((10 * amount)/100);
+                mes = "Your Final payable amount is " + TAmount + " And Discout is " + discount + " (10%) ";
+            }
+            else{
+                TAmount=amount;
+                discount=0;
+                mes = "Your Final payable amount is " + TAmount + " And no discount is applied ";
+            }
+            h3dis.innerText = mes;
+        }
+    </script>
+</body>
+</html>

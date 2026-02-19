@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Analysis Tool</title>
+</head>
+<body>
+    <h3>Enter any Integer</h3><br>
+    <input type="number" name="num1" id="num1"><br><br>
+    <input type="button" value="Show Analysis" id="b1" onclick="showAnalysis()"><br><br>
+    <h2 id="dis"></h2>
+    <script>
+        function showAnalysis()
+        {
+            let num = Number(document.getElementById("num1").value);
+            let h3dis = document.getElementById("dis");
+            let res1 = (num > 0) ? "Positive" : "Negative";
+            let res2,mes;
+            let str="";
+            if(res1==="Positive")
+            {
+                if((num%2)===0){
+                    res2="Number is Positive and Even";
+                }
+                else{
+                    res2="Number is Positive and Odd";
+                }
+            }
+            else{
+                if((num%2)===0){
+                    res2="Number is Negative and Even";
+                }
+                else{
+                    res2="Number is Negative and Odd";
+                }
+            }
+            if(res1==="Positive")
+            {
+                for(let i=1;i<=num;i++){
+                    str += i + "<br>";
+                }
+            }
+            else{
+                for(let i=1; i>=num; i--){
+                    str += i + "<br>";
+                }
+            }
+            mes = "The " + res2 + "<br>" + "Series starting from 1 til " + num + " is as follows <br> " + str;
+            h3dis.innerHTML = mes;
+        }
+    </script>
+</body>
+</html>

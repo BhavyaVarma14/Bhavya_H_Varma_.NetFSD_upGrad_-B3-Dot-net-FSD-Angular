@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grader</title>
+</head>
+<body>
+    <h3>Enter Student Name</h3>
+    <input type="text" name="name" id="name1"><br>
+    <h3>Enter Student Marks</h3>
+    <input type="number" name="num" id="num1"><br><br>
+    <input type="button" value="Show Performance" onclick="
+    let name = document.getElementById('name1').value;
+    let marks = Number(document.getElementById('num1').value);
+    let mes;
+    if (marks >= 75) {
+        mes = name + ' has got Grade A in Exams';
+    } 
+    else if (marks >= 60) {
+        mes = name + ' has got Grade B in Exams';
+    } 
+    else if (marks >= 40) {
+        mes = name + ' has got Grade C in Exams';
+    } 
+    else {
+        mes = name + ' has Failed in Exams';
+    }
+
+    console.log(mes);" id="b1"><br>
+</body>
+</html>

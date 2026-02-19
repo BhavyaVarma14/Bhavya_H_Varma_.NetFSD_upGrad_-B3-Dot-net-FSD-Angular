@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsiveness and Screen Adaptibility</title>
+    <style>
+        .header{
+            background-color: blue;
+            color: azure;
+            font-size: xx-large;
+            height: 25%;
+            padding: 10px;
+            text-align: center;
+        }
+        .nav{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            background-color: aqua;
+            height: 25px;
+            gap: 10px;
+            padding: 20px;
+        }
+        .div1{
+            color: black;
+            font-size: large;
+        }
+        .main{
+            background-color: blanchedalmond;
+            text-align: center;
+            padding: 20px;
+            font-size: larger;
+            font-weight: bolder;
+            height: 100vh;
+        }
+        @media screen and (max-width: 600px) {
+            .bdiv{
+                display: flex;
+                justify-content: stretch;
+            }
+            .nav{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background-color: aqua;
+            height: 100vh;
+            gap: 10px;
+            padding: 20px;
+            }
+
+            .div1{
+            color: black;
+            font-size: large;
+            }
+
+            .main{
+            background-color: yellow;
+            text-align: center;
+            padding: 20px;
+            font-size: xx-large;
+            font-weight: bolder;
+            height: 100vh;
+            width: 500px;
+        }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        My Blog
+    </header>
+    <div class="bdiv">
+        <nav class="nav">
+            <div class="div1">Home</div>
+            <div class="div1">My Blogs</div>
+            <div class="div1">More About Me</div>
+            <div class="div1">Contact us</div>
+        </nav>
+        <div class="main">
+            This is Main Body
+        </div>
+    </div>
+</body>
+</html>
