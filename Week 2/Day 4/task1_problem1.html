@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+</head>
+<body>
+    <h3>Student Details</h3><br>
+    <label>Enter Name: </label>
+    <input type="text" name="name" id="name"><br><br>
+    <label>Enter Roll No: </label>
+    <input type="text" name="roll" id="roll"><br><br>
+    <label>Enter Marks: </label>
+    <input type="number" name="num" id="num"><br><br>
+    <input type="button" value="Show Student Details" onclick="showDetails()"><br>
+    <p id="p1"></p><br>
+    <input type="button" value="Show Student Grade" onclick="showGrade()"><br>
+    <p id="p2"></p>
+    <script>
+        class Student
+        {
+            constructor(name, rollno, marks){
+                this.name=name;
+                this.rollno=rollno;
+                this.marks=marks;
+            }
+            getDetails()
+            {
+                let str="Name: " + this.name + "<br>" + "Roll. No: " + this.rollno + "<br>" + "Marks: " + this.marks + "<br>";
+                let p1=document.getElementById("p1");
+                p1.innerHTML=str;
+            }
+            getGrade()
+            {
+                let str=""
+                if(this.marks >= 90){
+                    str="Grade is A ";
+                }
+                else if(this.marks >=75){
+                    str="Grade is B ";
+                }
+                else if(this.marks >=50){
+                    str="Grade is C ";
+                }
+                else{
+                    str="Student has failed";
+                }
+                let p1=document.getElementById("p2");
+                p1.innerHTML=str;
+            }
+        }
+
+        function showDetails()
+        {
+            let n1=document.getElementById("name").value;
+            let r1=document.getElementById("roll").value;
+            let m1=Number(document.getElementById("num").value);
+            let s1=new Student(n1,r1,m1);
+            s1.getDetails();
+        }
+        function showGrade()
+        {
+            let n1=document.getElementById("name").value;
+            let r1=document.getElementById("roll").value;
+            let m1=Number(document.getElementById("num").value);
+            let s1=new Student(n1,r1,m1);
+            s1.getGrade();
+        }
+    </script>
+</body>
+</html>

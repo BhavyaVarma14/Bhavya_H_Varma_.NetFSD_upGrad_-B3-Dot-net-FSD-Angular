@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location based weather logger</title>
+</head>
+<body onload="getHistory()">
+    <h2>Location based weather logger</h2><br>
+    <input type="button" value="Get Location" onclick="getLocation()"><br><br>
+    <p id="p1"></p>
+    <script>
+        var arr=[];
+        function getLocation()
+        {
+            if (!navigator.geolocation) {
+                display.innerHTML = "Geolocation is not supported by your browser.";
+                return;
+            }
+            navigator.geolocation.getCurrentPosition(showPosition,showError, {
+                timeout:10000,
+                enableHighAccuracy:true
+            });
+        }
+
+        function showPosition(position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            document.getElementById("p1").innerHTML = 
+                `Latitude: ${lat}<br>Longitude: ${lon}`;
+            let coords = {
+                latitude:lat,
+                longitude:lon
+            };
+            arr.push(coords);
+            if(arr.length <= 5)
+            {
+                let t=1;
+                for(let i=0;i<arr.length;i++)
+                {
+                    let mes = "Location " + t + " is ";
+                    sessionStorage.setItem(mes,JSON.stringify(arr[i]));
+                    t++;
+                }
+            }
+            else{
+                let t=1;
+                for(let i=arr.length-1;i>=arr.length -5;i--)
+                {
+                    let mes = "Location " + t + " is ";
+                    sessionStorage.setItem(mes,JSON.stringify(arr[i]));
+                    t++;
+                }
+            }
+        }
+
+        function showError(error) {
+            const display = document.getElementById("p1");
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    display.innerHTML = "Error: Permission denied. Please allow location access.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    display.innerHTML = "Error: Location information is unavailable.";
+                    break;
+                case error.TIMEOUT:
+                    display.innerHTML = "Error: The request to get user location timed out.";
+                    break;
+                case error.UNKNOWN_ERROR:
+                    display.innerHTML = "An unknown error occurred.";
+                    break;
+            }
+        }
+
+        function getHistory()
+        {
+            const display = document.getElementById("p1");
+            display.innerHTML = "";
+            display.innerHTML = "Location History is <br> <br>";
+            for(let i=0;i<sessionStorage.length;i++)
+            {
+                let mes = "Location " + (i+1) + " is ";
+                let so = JSON.parse(sessionStorage.getItem(mes));
+                display.innerHTML += "Latitude is "+ so.latitude + " Longitude is " + so.longitude  + "<br>"
+            }
+        }
+    </script>
+</body>
+</html>

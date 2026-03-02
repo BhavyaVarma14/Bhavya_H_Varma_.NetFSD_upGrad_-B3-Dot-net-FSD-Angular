@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Data</title>
+</head>
+<body>
+    <h3>Weather Data is </h3><br>
+    <input type="button" value="Get Weather Data" onclick="getWeatherData()"><br><br>
+    <p id="data"></p>
+    <script>
+        async function getWeatherData() {
+            let url = "https://api.open-meteo.com/v1/forecast?latitude=21.55&longitude=72.93&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m"
+            let response = await window.fetch(url);
+            let arr = await response.json();
+            displayData(arr);
+        }
+
+        function displayData(arr)
+        {
+            let pid=document.getElementById("data");
+            let mes = "Temperature is: " + arr.current.temperature_2m + " <br> " + "Wind speed is: " + arr.current.wind_speed_10m + "<br> ";
+            pid.innerHTML=mes;
+        }
+    </script>
+</body>
+</html>

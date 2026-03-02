@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live form Validation</title>
+    <style>
+        p{
+            color: red;
+            background-color: yellow;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <h2>Form Validation</h2><br>
+    <label>Enter Name: </label>
+    <input type="text" name="name" id="name" onchange="checkName()"><br><br>
+    <label>Enter Age: </label>
+    <input type="text" name="age" id="age" onchange="checkAge()"><br><br>
+    <label>Enter Email: </label>
+    <input type="text" name="email" id="email" onchange="checkEmail()"><br><br>
+    <input type="button" value="Submit" onclick="onCheckall()"><br><br>
+    <p id="p1"></p>
+    <script>
+        function checkName()
+        {
+            let name = document.getElementById("name").value;
+            let pid = document.getElementById("p1");
+            if(name===""){
+                pid.innerHTML = "Name field is Empty, please fill it <br>";
+            }
+            else{
+                return true;
+            }
+        }
+
+        function checkAge()
+        {
+            let age = Number(document.getElementById("age").value);
+            let pid = document.getElementById("p1");
+            if(age <= 18){
+                pid.innerHTML = "Age should be greater than 18, please fill it accordingly <br>";
+            }
+            else{
+            return true;
+            }
+        }
+
+        function checkEmail()
+        {
+            let email = document.getElementById("email").value;
+            let pid = document.getElementById("p1");
+            if(!(email.includes("@"))){
+                pid.innerHTML = "@ is not there, please inlclude it <br>";
+            }
+            else{
+                return true;
+            }
+        }
+
+        function onCheckall(){
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let age = Number(document.getElementById("age").value);
+            let pid = document.getElementById("p1");
+            let obj = {
+                Name:name,
+                Age:age,
+                Email:email
+            };
+            if(checkName() && checkAge() && checkEmail()){
+                sessionStorage.setItem("User Info",JSON.stringify(obj));
+                pid.innerHTML="";
+                pid.innerHTML = "User Info is saved in Session Storage <br>";
+            }
+            else{
+                pid.innerHTML = "User Info is not correct please enter accordingly <br>";
+            }
+        }
+    </script>
+</body>
+</html>

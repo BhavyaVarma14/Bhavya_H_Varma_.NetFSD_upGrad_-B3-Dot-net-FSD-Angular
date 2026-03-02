@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment System</title>
+</head>
+<body>
+    <h3>Payment System</h3><br>
+    <label>Enter Amount: </label>
+    <input type="number" name="num" id="num"><br><br>
+    <label>Select Payment Mode: </label><br>
+    <select name="Payment Mode" id="pay">
+        <option value="Credit Card">Credit Card</option>
+        <option value="UPI">UPI</option>
+        <option value="Cash">Cash</option>
+        <option value="Other">Other</option>
+    </select><br><br>
+    <input type="button" value="Show Payment Status" onclick="showStatus()"><br>
+    <p id="p1"></p><br>
+    <script>
+        class Payment{
+            constructor(amount){
+                this.amount=amount;
+            }
+            pay(){
+                let str="Processing Payment";
+                let p1=document.getElementById("p1");
+                p1.innerHTML="";
+                p1.innerHTML=str;
+            }
+        }
+        class CreditCardPayment extends Payment{
+            constructor(amount){
+                super(amount);
+            }
+            pay(){
+                let str="Paid Rs " + this.amount + " using credit card";
+                let p1=document.getElementById("p1");
+                p1.innerHTML="";
+                p1.innerHTML=str;
+            }
+        }
+        class UPIPayment extends Payment{
+            constructor(amount){
+                super(amount);
+            }
+            pay(){
+                let str="Paid Rs " + this.amount + " using UPI";
+                let p1=document.getElementById("p1");
+                p1.innerHTML="";
+                p1.innerHTML=str;
+            }
+        }
+        class CashPayment extends Payment{
+            constructor(amount){
+                super(amount);
+            }
+            pay(){
+                let str="Your Details are noted, please visit nearest bank and deposit the money into the account";
+                let p1=document.getElementById("p1");
+                p1.innerHTML="";
+                p1.innerHTML=str;
+            }
+        }
+        function showStatus()
+        {
+            let amt = document.getElementById("num").value;
+            let pay = document.getElementById("pay").value;
+            if(pay==="Credit Card"){
+                let p1=new CreditCardPayment(amt);
+                p1.pay();
+            }
+            else if(pay==="UPI"){
+                let p1=new UPIPayment(amt);
+                p1.pay();
+            }
+            else if(pay==="Cash"){
+                let p1= new CashPayment(amt);
+                p1.pay();
+            }
+            else{
+                let p1= new Payment(amt);
+                p1.pay();
+            }
+        }
+    </script>
+</body>
+</html>

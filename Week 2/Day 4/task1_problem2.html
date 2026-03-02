@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Details</title>
+</head>
+<body>
+    <h3>Car Details</h3><br>
+    <label>Enter Brand Name: </label>
+    <input type="text" name="name" id="name"><br><br>
+    <label>Enter Speed: </label>
+    <input type="text" name="roll" id="speed"><br><br>
+    <label>Enter Fuel Type: </label>
+    <select name="fuel type" id="fuel">
+        <option value="Disel">Disel</option>
+        <option value="Petrol">Petrol</option>
+        <option value="CNG">CNG</option>
+    </select><br><br>
+    <input type="button" value="Show Car Details" onclick="showDetails()"><br>
+    <p id="p1"></p><br>
+    <script>
+        class Vehicle
+        {
+            constructor(name, speed){
+                this.name=name;
+                this.speed=speed;
+            }
+            displayInfo()
+            {
+                let str="Brand Name is : " + this.name + "<br>" + "Speed of the car is : " + this.speed + "<br>";
+                return str;
+            }
+        }
+        class Car extends Vehicle
+        {
+            constructor(name, speed, fueltype){
+                super(name,speed);
+                this.fueltype=fueltype;
+            }
+            showCarDetails()
+            {
+                let str=super.displayInfo()
+                str=str + "Fuel Type is : " + this.fueltype;
+                let p1=document.getElementById("p1");
+                p1.innerHTML=str;
+            }
+
+        }
+
+        function showDetails()
+        {
+            let n1=document.getElementById("name").value;
+            let r1=document.getElementById("speed").value;
+            let m1=document.getElementById("fuel").value;
+            let s1=new Car(n1,r1,m1);
+            s1.showCarDetails();
+        }
+    </script>
+</body>
+</html>

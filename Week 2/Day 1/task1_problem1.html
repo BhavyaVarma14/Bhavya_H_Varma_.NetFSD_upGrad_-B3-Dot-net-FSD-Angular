@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Notes Saver</title>
+</head>
+<body>
+    <h3>Notes Saver</h3><br>
+    <label>Add a Note below</label><br><br>
+    <textarea name="notes" id="notes" cols="30" rows="10"></textarea><br>
+    <input type="button" value="Save" onclick="storeData()">&nbsp;&nbsp;
+    <input type="button" value="Clear" onclick="removeData()"><br><br>
+    <p id="p1"></p>
+    <script>
+        function storeData()
+        {
+            let notes=document.getElementById("notes").value;
+            localStorage.setItem("Notes",notes);
+        }
+        function removeData()
+        {
+            let pid=document.getElementById("p1");
+            pid.innerHTML="";
+            pid.innerHTML="Data removed from Storage";
+            localStorage.removeItem("Notes");
+        }
+        window.onload = function(){
+            let notes = localStorage.getItem("Notes");
+            let pid=document.getElementById("p1");
+            pid.innerHTML="";
+            pid.innerHTML="Notes stored is: " + "<br>" + notes;
+        }
+    </script>
+</body>
+</html>
