@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting Generator</title>
+</head>
+<body>
+    <h2>Greeting Generator</h2><br>
+    <label>Enter Your name</label> <br>
+    <input type="text" name="t1" id="t1"><br><br>
+    <input type="button" value="Greeting Generator" onclick="greetingGenerator()"><br><br>
+    <p id="p1"></p>
+    <script>
+        function greetingGenerator()
+        {
+            let t1=document.getElementById("t1").value;
+            let mes="Hello ! " + t1 + " welcome to our website";
+            let p1=document.getElementById("p1");
+            p1.innerText=mes;
+        }
+    </script>
+</body>
+</html>
