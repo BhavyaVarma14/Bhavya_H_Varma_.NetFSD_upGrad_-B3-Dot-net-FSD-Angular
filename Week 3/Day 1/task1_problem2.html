@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Page</title>
+</head>
+<body>
+    <h2 align="center" >FAQs</h2><br>
+    <div>
+        <h4>1. What is your company's mission?</h4>
+    <p id="p1" class="p9">Our mission is to deliver high-quality products that improve the daily lives of our customers
+     while operating sustainably and ethically. </p>
+    <input type="button" value="Show" id="show1" class="btn"><br>
+    </div>
+
+    <div>
+        <h4>2. How can I get in touch with customer support?</h4>
+    <p id="p2" class="p9">You can reach our support team via email at support@company.com, by phone at (555) 123-4567, or 
+    through our live chat feature on the website between 9 a.m. and 5 p.m. EST, Monday through Friday.</p>
+    <input type="button" value="Show" id="show2" class="btn"><br>
+    </div>
+
+    <div>
+        <h4>3. Where can I find your office/store locations?</h4>
+    <p id="p3" class="p9">Our corporate headquarters is located i India. 
+        You can also find a list of our retail partner locations on our "Locations" page on our website.</p>
+    <input type="button" value="Show" id="show3" class="btn"><br>
+    </div>
+
+    <div>
+<h4>4. What payment methods do you accept?</h4>
+    <p id="p4" class="p9">We accept all major credit cards (Visa, MasterCard, American Express), PayPal, 
+        Apple Pay, and Google Pay. All transactions are securely processed.</p>
+    <input type="button" value="Show" id="show4" class="btn"><br>
+    </div>
+
+    <div>
+        <h4>5. What is your shipping policy?</h4>
+    <p id="p5" class="p9">We offer free standard shipping on all orders over $[Amount]. Standard shipping 
+    typically takes 3-5 business days. Expedited shipping options are available at checkout.</p>
+    <input type="button" value="Show" id="show5" class="btn"><br>
+    </div>
+
+    <div>
+        <h4>6. How can I track my order?</h4>
+    <p id="p6" class="p9">Once your order ships, you will receive an email with a tracking number. You can use this number on our website's 
+    "Track Order" page to see the real-time status of your shipment.</p>
+    <input type="button" value="Show" id="show6" class="btn"><br>
+    </div>
+
+    <div>
+        <h4>7. What is your return or exchange policy?</h4>
+    <p id="p7" class="p9">We offer a 30-day money-back guarantee. If you are not satisfied with your purchase, 
+        you can return it in its original packaging within 30 days for a full refund or exchange.</p>
+    <input type="button" value="Show" id="show7" class="btn"><br>
+    </div>
+
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("p").hide();
+
+            $("div .btn").click(function() {
+                $(this).siblings("p").slideToggle(1000);
+            });
+        });
+    </script>
+</body>
+</html>

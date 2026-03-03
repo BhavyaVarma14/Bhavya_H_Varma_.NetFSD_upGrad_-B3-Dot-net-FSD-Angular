@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Feedback form Intereaction</title>
+</head>
+<body>
+    <h2>Student Feedback Form</h2><br>
+    <label>Enter Name: </label>
+    <input type="text" name="name" id="name"><br><br>
+    <label>Enter Email: </label>
+    <input type="text" name="email" id="email"><br><br>
+    <label>Enter Course Rating (Out of 5): </label>
+    <select name="rating" id="rating">
+        <option value="1">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select><br><br>
+    <label>Enter Comments: </label><br>
+    <textarea name="comments" id="comments" cols="30" rows="10"></textarea><br><br>
+    <input type="button" value="Submit" id="submit"><br><br>
+    <p id="p1"></p>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+         
+            $("#submit").click(function() {
+                let name1 = $("#name").val();
+                let email1 = $("#email").val();
+                if((name1==="") || (email1==="")){
+                    $("#p1").css("color","red");
+                    $("#p1").text("Name/Email is empty, Please fill it and submit");
+                }
+                else{
+                    $("#p1").val("");
+                    $("#p1").css("color","green");
+                    $("#p1").text("The form is succesfully submited");
+                    $("#name, #email, #comments, #rating").val("");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

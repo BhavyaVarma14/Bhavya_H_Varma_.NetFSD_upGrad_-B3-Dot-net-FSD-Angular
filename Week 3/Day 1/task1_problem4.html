@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do List Application</title>
+    <style>
+        .Footer h3{
+            background-color: red;
+            color: azure;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 10;
+            font-style: italic;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: xx-large;
+            padding: 20px;
+            margin-left: 10%;
+            margin-right: 10%;
+            height: 25%;
+        }
+    </style>
+</head>
+<body>
+    <h2 align="center">To Do List Application</h3><br><br>
+    <label>Enter Task : </label><br>
+    <input type="text" id="task">&nbsp; &nbsp;
+    <input type="button" value="Add Task" id="btn1"><br><br>
+    <ul id="list">
+
+    </ul>
+    <footer class="Footer">
+        <h3 id="pen">Total Task : </h3>
+        <h3 id="comp">Task Completed : </h3>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            let count = 0;
+            let comp = 0;
+            $("#btn1").click(function () {
+               count++;
+               let t1 = $("#task").val();
+               $("#list").append("<li>" + t1 + "  <input type='button' value='Task Complete' class='btn2'>  " + "  <input type='button' value='Task Delete' class='btn3'>  " + "</li>" + "<br>" );
+               $("#pen").text("Task Counter : " + count);
+            });
+            $(document).on("click",".btn2",function() {
+                comp++;
+               $(this).parent().css("text-decoration", "line-through");
+               $("#comp").text("Task Completed : " + comp);
+               $(this).prop("disabled",true);
+            });
+            $(document).on("click",".btn3",function() {
+                count--;
+               $(this).closest("li").remove();
+               $("#pen").text("Task Counter : " + count);
+            });
+        });
+    </script>
+</body>
+</html>
